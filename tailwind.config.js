@@ -12,13 +12,13 @@ export default {
               top:'30%',
             },
             '100%': {
-              top: '100%',
+              top: '88%',
             },
           },
       },
     },
     animation:{
-      'move-down':'movedown 2s infinite'
+      'move-down':'movedown 4s infinite'
     }
   },
   plugins: [],
