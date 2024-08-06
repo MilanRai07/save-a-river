@@ -10,8 +10,16 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --animation-movedown: movedown;
   }
-
+  @keyframes movedown {
+    0% {
+      top: 30%;
+    }
+    100% {
+      top: 88%;
+    }
+  }
   @layer components{
     .ContentDiv{
       @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2
@@ -33,10 +41,10 @@
        @apply h-[430px] w-[200px]  flex flex-col justify-between items-center relative
     }
     .Poop{
-      @apply w-10 h-10 absolute top-[30%] animate-move-down -z-10 select-none
+      @apply w-10 h-10 absolute top-[30%] -z-10 select-none
     }
     .DropDiv{
-      @apply w-full h-32 flex justify-center bg-black bg-opacity-15
+      @apply w-full h-32 flex justify-center bg-black bg-opacity-20
     }
     .Toilet{
       @apply w-[150px] h-full cursor-grab

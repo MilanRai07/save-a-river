@@ -10,8 +10,15 @@ const App: React.FC = () => {
   const [count, setCount] = useState<number>(0)   //stores the number of poop and toilet collided
   const [gameOver, setGameOver] = useState<boolean>(false) //sets if poop is failed to meet toilet
   const [startTime, setStartTime] = useState<number>(5) //intial timer 5s
+  const [fallTime, setFallTime] = useState<string>('4s'); //time taken to fall the poop
   const poopRef: any = useRef();   //ref for tracking of poop
   const toiletRef: any = useRef(); //ref for tracking of toilet
+
+  const verticalDivs = [
+    { id: 'div1', index: 0 },
+    { id: 'div2', index: 1 },
+    { id: 'div3', index: 2 }
+  ];
 
   const { drop, drag, allowDrop } = useDragHook();  //all the drag and drop logic from useDragHook
 
@@ -21,6 +28,7 @@ const App: React.FC = () => {
       if (startTime > 0) {
         setStartTime(prevTime => prevTime - 1);
       } else {
+        //generate randomIndex for first poop fall down
         const generateIndex = Math.floor(Math.random() * 3);
         setRandomIndex(generateIndex);
         setStartTime(0);
@@ -52,13 +60,23 @@ const App: React.FC = () => {
           setHasMeet(false)   //the poop and toilet is failed to collide
           if (poopRect.bottom > 500) {  //if the poop falls the bottom without touching the toilet, gameOver is true
             setGameOver(true)
+            setFallTime('4s') //set the fallTIme to 4s after gameOver
           }
         }
       }
       requestAnimationFrame(checkCollision); //repeatedly checking for collision
     };
     requestAnimationFrame(checkCollision); //starts the collision checking
-  }, []);
+
+    //increase the speed of the poop falling
+    if (count == 10) {
+      setFallTime('3s')
+    } else if (count == 25) {
+      setFallTime('2s')
+    } else if (count >= 40) {
+      setFallTime('1s')
+    }
+  }, [count]);
 
   //to update the count value
   useEffect(() => {
@@ -98,52 +116,28 @@ const App: React.FC = () => {
               :
               //if false, play the game
               <div className=' flex gap-20'>
-                {/**First Vertical Div */}
-                <div className='VerticalDiv'>
-                  <img src={Man} className='w-28 select-none' alt="Man" draggable='false' />
-                  {randomIndex === 0 && (         //if randomIndex is 0, the poop exists and falls from here
-                    <img src={Poop} className='Poop' alt="Poop" draggable='false' ref={poopRef} />
-                  )}
-                  <div                    //div to store toilet image
-                    id='div1'
-                    onDrop={drop}
-                    onDragOver={allowDrop}
-                    className='DropDiv'
 
-                  >
-
+                {verticalDivs.map(({ id, index }) => (
+                  <div className='VerticalDiv' key={id}>
+                    <img src={Man} className='w-28 select-none' alt="Man" draggable='false' />
+                    {randomIndex === index && (
+                      <img
+                        src={Poop}
+                        className='Poop'
+                        style={{ animation: `var(--animation-movedown) ${fallTime} infinite` }}
+                        alt="Poop"
+                        draggable='false'
+                        ref={poopRef}
+                      />
+                    )}
+                    <div
+                      id={id}
+                      onDrop={drop}
+                      onDragOver={allowDrop}
+                      className='DropDiv'
+                    />
                   </div>
-                </div>
-                {/**Second Vertical Div */}
-                <div className='VerticalDiv'>
-                  <img src={Man} className='w-28 select-none' alt="Man" draggable='false' />
-                  {randomIndex === 1 && (       //if randomIndex is 1, the poop falls from here
-                    <img src={Poop} className='Poop' alt="Poop" draggable='false' ref={poopRef} />
-                  )}
-                  <div                         //div to store toilet image
-                    id='div2'
-                    onDrop={drop}
-                    onDragOver={allowDrop}
-                    className='DropDiv'
-
-                  >
-                  </div>
-                </div>
-                {/**Third Vertical Div */}
-                <div className='VerticalDiv'>
-                  <img src={Man} className='w-28 select-none' alt="Man" draggable='false' />
-                  {randomIndex === 2 && (       //if randomIndex is 2, the poop falls from here
-                    <img src={Poop} className='Poop' alt="Poop" draggable='false' ref={poopRef} />
-                  )}
-                  <div                         //div to store toilet image
-                    id='div3'
-                    onDrop={drop}
-                    onDragOver={allowDrop}
-                    className='DropDiv'
-
-                  >
-                  </div>
-                </div>
+                ))}
                 <div id='initalToilet' className='w-[100px] h-28 absolute -right-28'>
                   <img src={Toilet}
                     id='drag'
