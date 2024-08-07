@@ -3,8 +3,8 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}',],
   theme: {
     extend: {
-      backgroundImage:{
-        'scene':"url('./images/riverScene.jpg')"
+      backgroundImage: {
+        'scene': "url('./images/riverScene.jpg')"
       },
     },
   },

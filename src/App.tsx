@@ -87,9 +87,9 @@ const App: React.FC = () => {
 
   //to reset the game after Play Again Button
   const reset = () => {
-    setCount(0);
-    setGameOver(false)
-    setRandomIndex(null)
+    setCount(0);  
+    setGameOver(false)  
+    setRandomIndex(null) 
     setStartTime(5)
   }
   return (
