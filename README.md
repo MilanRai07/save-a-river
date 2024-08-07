@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Save A Rive
+Save A River is a simple game developed with React.js. We have to save the river from contamination of the poop that is falling to the river by dragging the toilet above the poop. If the poop falls into the river, it is game over. The difficulty levels are incresed with certian score. This project is built with Vite for faster development experience and tailwind css for styling.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Prerequisites
+- You need a node js. Download it and install it in your pc. Take a reference from [nodejs.org/en](https://nodejs.org/en)
 
-Currently, two official plugins are available:
+## Project Setup/Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Step 1
+- **clone repository**
+```git clone https://github.com/MilanRai07/save-a-river.git```
 
-## Expanding the ESLint configuration
+## Step 2
+- **Install npm**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1) At the root folder directory, ```npm install```
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Step 3
+- **Run the project**
+in the root folder directory, ```npm run dev```
+The project runs at ``` http://localhost:5173/``` by default.
