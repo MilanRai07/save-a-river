@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'scene': "url('./images/riverScene.jpg')"
+        'scene': "url('/images/riverScene.jpg')"
       },
     },
   },
