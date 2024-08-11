@@ -28,7 +28,7 @@ const App: React.FC = () => {
       if (startTime > 0) {
         setStartTime(prevTime => prevTime - 1);
       } else {
-        //generate randomIndex for first poop fall down
+        // generate randomIndex for first poop fall down
         const generateIndex = Math.floor(Math.random() * 3);
         setRandomIndex(generateIndex);
         setStartTime(0);
@@ -87,9 +87,9 @@ const App: React.FC = () => {
 
   //to reset the game after Play Again Button
   const reset = () => {
-    setCount(0);  
-    setGameOver(false)  
-    setRandomIndex(null) 
+    setCount(0);
+    setGameOver(false)
+    setRandomIndex(null)
     setStartTime(5)
   }
   return (
@@ -104,7 +104,7 @@ const App: React.FC = () => {
         <div className='ContentDiv'>
           <div className='text-center'>
             {/** Score Count */}
-            <p className='GameScore'>Score: {count}</p>
+            <p className='GameScore xl:text-lg md:!text-base'>Score: {count}</p>
           </div>
           {
             gameOver ?
@@ -115,11 +115,11 @@ const App: React.FC = () => {
               </div>
               :
               //if false, play the game
-              <div className=' flex gap-20'>
+              <div className=' flex gap-20 lg:gap-16 s-m:gap-12 2xs:gap-8'>
 
                 {verticalDivs.map(({ id, index }) => (
                   <div className='VerticalDiv' key={id}>
-                    <img src={Man} className='w-28 select-none' alt="Man" draggable='false' />
+                    <img src={Man} className='w-28 select-none xl:w-20 xl:h-20 xs:w-16 xs:h-16' alt="Man" draggable='false' />
                     {randomIndex === index && (
                       <img
                         src={Poop}
@@ -138,7 +138,7 @@ const App: React.FC = () => {
                     />
                   </div>
                 ))}
-                <div id='initalToilet' className='w-[100px] h-28 absolute -right-28'>
+                <div id='initalToilet' className='ToiletDiv'>
                   <img src={Toilet}
                     id='drag'
                     draggable='true'

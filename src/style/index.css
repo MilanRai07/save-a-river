@@ -25,26 +25,33 @@
       @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2
     }
     .GameCounter{
-      @apply font-bold absolute top-6 left-1/2 -translate-x-1/2  bg-black bg-opacity-90 text-white p-2 select-none
+      @apply font-bold text-center absolute top-6 left-1/2 -translate-x-1/2  
+      bg-black bg-opacity-90 text-white p-2 select-none xl:text-sm sm:w-64 xs:text-xs xs:w-60 2xs:w-52 2xs:top-4
     }
     .GameScore{
       @apply text-xl font-bold text-red-800 mb-4 select-none
     }
     .GameOver{
       @apply w-[300px] h-auto bg-black bg-opacity-90 flex justify-center items-center p-3 rounded
-       text-white font-bold select-none
+       text-white font-bold select-none xl:text-sm sm:w-64 xs:text-xs xs:w-60 2xs:w-52 2xs:top-4
     }
     .Button{
-      @apply  bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600
+      @apply  bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 sm:text-sm
     }
     .VerticalDiv{
        @apply h-[430px] w-[200px]  flex flex-col justify-between items-center relative
+       xl:w-36 xl:h-80 lg:h-80 lg:w-12 md:!w-24 sm:!w-20 xs:!w-16 2xs:!w-14
     }
     .Poop{
-      @apply w-10 h-10 absolute top-[30%] -z-10 select-none
+      @apply w-10 h-10 absolute top-[30%] -z-10 select-none lg:w-8 lg:h-8 s-m:w-7 s-m:h-7 xs:w-6 xs:h-6
     }
     .DropDiv{
-      @apply w-full h-32 flex justify-center bg-black bg-opacity-20
+      @apply w-full h-32 flex justify-center bg-black bg-opacity-20 lg:h-28 md:!h-20
+    }
+    .ToiletDiv{
+      @apply w-[100px] h-28 absolute -right-28 xl:-top-14 xl:-right-14 xl:h-20 
+      xl:w-20 lg:!-right-1 sm:-left-5 sm:!w-16 sm:!h-16 sm:!-top-11 s-m:!w-14 
+      s-m:h-14 s-m:left-1 s-m:!-top-10 xs:!-top-5
     }
     .Toilet{
       @apply w-[150px] h-full cursor-grab
