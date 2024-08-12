@@ -18,4 +18,4 @@ Save A River is a simple game developed with React.js. We have to save the river
 ## Step 3
 - **Run the project**
 in the root folder directory, ```npm run dev```
-The project runs at ``` http://localhost:5173/``` by default.
+The project runs at ``` http://localhost:5173/save-a-river``` by default.
