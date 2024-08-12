@@ -51,7 +51,7 @@
     .ToiletDiv{
       @apply w-[100px] h-28 absolute -right-28 xl:-top-14 xl:-right-14 xl:h-20 
       xl:w-20 lg:!-right-1 sm:-left-5 sm:!w-16 sm:!h-16 sm:!-top-11 s-m:!w-14 
-      s-m:h-14 s-m:left-1 s-m:!-top-10 xs:!-top-5
+      s-m:h-14 s-m:left-1 s-m:!-top-10 xs:!-top-6
     }
     .Toilet{
       @apply w-[150px] h-full cursor-grab
